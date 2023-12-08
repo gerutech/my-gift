@@ -39,12 +39,15 @@ body {
   background: #a4d6ed url(../img/bg-gift.jpg) center/cover;
 }
 .body_greeting {
-  background: #febfcb url(../img/bg-greeting.jpg) center/cover;
+  background-color: #febfcb;
+  background-image: url(../img/bg-greeting.jpg);
+  background-size: cover;
+  background-position: center;
 }
 .container {
   margin: 0 auto;
-  max-width: 1240px;
-  padding: 0 30px;
+  max-width: 1260px;
+  padding: 0 40px;
 }
 .header {
   padding: 40px 0;
@@ -69,17 +72,16 @@ body {
 .gift__descr {
   font-size: 20px;
   font-weight: 400;
-  margin: 0;
-  margin-bottom: 48px;
+  margin: 0 0 50px;
 }
 .gift__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  gap: 30px;
+  gap: 96px;
 }
 .gift__card {
-  max-width: 580px;
+  width: 49.15%;
 }
 
 .gift__swiper_card {
@@ -106,7 +108,8 @@ body {
 }
 
 .gift__form {
-  max-width: 480px;
+  /* max-width: 480px; */
+  width: 100%;
 }
 .form {
   display: grid;
@@ -120,6 +123,7 @@ body {
 .form__label-text {
   display: block;
   margin-bottom: 4px;
+  white-space: nowrap;
 }
 .form__field {
   width: 100%;
@@ -173,4 +177,155 @@ body {
 .form__button:disabled {
   opacity: 0.4;
   background: #4baa00;
+}
+
+.greeting {
+  padding: 20px 0 145px;
+}
+
+.greeting__title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  text-align: center;
+}
+.greeting__descr {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 50px;
+  text-align: center;
+}
+.greeting__card {
+  margin: 0 auto;
+}
+.card {
+  width: 580px;
+  height: 375px;
+  perspective: 1000px;
+}
+.card:hover .card__inner {
+  transform: rotateY(180deg);
+}
+.card__inner {
+  transform-style: preserve-3d;
+  transition: transform 1s linear;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+.card__front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: visible;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.card__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.card__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  background: #fff;
+  border-radius: 20px;
+  transform: rotateY(180deg);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.card__title {
+  color: #f44;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+.card__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #221f1f;
+  font-size: 16px;
+  font-weight: 400;
+}
+.card__detail {
+  gap: 16px;
+  position: relative;
+}
+.card__subtitle {
+  color: #221f1f4d;
+  position: absolute;
+}
+.card__name {
+  padding-left: 70px;
+}
+
+/*---------------------------------------*/
+@media (max-width: 1140px) {
+  .container {
+    max-width: 1024px;
+  }
+  .header {
+    padding: 32px 0 16px;
+  }
+  .gift {
+    padding: 16px 0 42px;
+  }
+  .gift__title {
+    margin-bottom: 12px;
+    font-size: 28px;
+  }
+  .gift__descr {
+    margin: 0 0 24px;
+    font-size: 16px;
+  }
+  .gift__wrapper {
+    align-items: center;
+  }
+  .form {
+    row-gap: 12px;
+  }
+}
+
+@media (max-width: 980px) {
+  .gift__wrapper {
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  .gift__card {
+    max-width: 464px;
+    width: 100%;
+  }
+  @media (max-width: 580px) {
+    .container {
+      width: 100%;
+      padding: 0 16px;
+    }
+    .header {
+      padding: 24px 0 32px;
+    }
+    .gift {
+      padding: 16px 0 50px;
+    }
+    .gift__card {
+      max-width: 464px;
+      width: 100%;
+    }
+    .gift__card-thumb {
+      width: 56px;
+    }
+    .form {
+      grid-template-columns: 1fr;
+    }
+  }
 }
